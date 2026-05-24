@@ -1,0 +1,115 @@
+{
+  "theme": "dark",
+  "archetype": "4 (Swiss & High-Contrast) + Terminal Futurism",
+  "typography": {
+    "fonts": {
+      "headings": "Space Grotesk",
+      "body": "Inter",
+      "monospace": "JetBrains Mono"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight",
+      "body": "text-base sm:text-lg leading-relaxed",
+      "small": "text-sm tracking-wide text-secondary",
+      "code": "font-mono text-sm tracking-tight",
+      "overline": "text-xs font-mono uppercase tracking-[0.2em] font-bold"
+    },
+    "import_urls": [
+      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+    ]
+  },
+  "colors": {
+    "background": {
+      "page": "#050A0F",
+      "surface": "#0D1117",
+      "surface_hover": "#161B22",
+      "glass": "rgba(13, 17, 23, 0.7)"
+    },
+    "text": {
+      "primary": "#F0F4F8",
+      "secondary": "#8B9EB0",
+      "muted": "#4B5563"
+    },
+    "accents": {
+      "primary": "#00E5FF",
+      "primary_glow": "rgba(0, 229, 255, 0.15)",
+      "primary_dim": "rgba(0, 229, 255, 0.4)",
+      "warning": "#FFB300",
+      "warning_glow": "rgba(255, 179, 0, 0.15)",
+      "warning_dim": "rgba(255, 179, 0, 0.4)",
+      "border": "rgba(139, 158, 176, 0.2)"
+    }
+  },
+  "layout_and_spacing": {
+    "grid_strategy": "Control Room Protocol: Tight gaps for metrics, bento layouts, intense mathematical alignment.",
+    "container": "max-w-7xl mx-auto px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "item_spacing": {
+      "tight": "gap-4 md:gap-6",
+      "loose": "gap-12 md:gap-16",
+      "bento_gap": "gap-4 md:gap-8"
+    }
+  },
+  "components": {
+    "surface_cards": {
+      "style": "Glassmorphism + Technical Grid",
+      "classes": "bg-[#0D1117]/80 backdrop-blur-xl border border-[#00E5FF]/20 rounded-lg p-6 md:p-8 relative overflow-hidden transition-all duration-300",
+      "hover_classes": "hover:border-[#00E5FF]/50 hover:bg-[#161B22]/90 hover:shadow-[0_0_30px_rgba(0,229,255,0.1)] -translate-y-1",
+      "warning_classes": "bg-[#0D1117]/80 backdrop-blur-xl border border-[#FFB300]/20 rounded-lg p-6 md:p-8 relative overflow-hidden transition-all duration-300 hover:border-[#FFB300]/50 hover:shadow-[0_0_30px_rgba(255,179,0,0.1)]",
+      "shadow": "drop-shadow-none"
+    },
+    "buttons": {
+      "primary": "bg-transparent text-[#00E5FF] border border-[#00E5FF] px-8 py-3 rounded-md font-mono uppercase tracking-widest text-sm hover:bg-[#00E5FF] hover:text-[#050A0F] transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] relative overflow-hidden",
+      "waitlist_input": "bg-[#050A0F] border border-[#00E5FF]/40 text-[#F0F4F8] focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] focus:outline-none rounded-l-md px-4 py-3 h-12 w-full max-w-sm font-mono placeholder:text-[#8B9EB0]",
+      "waitlist_submit": "bg-[#00E5FF] text-[#050A0F] font-bold px-6 py-3 h-12 rounded-r-md hover:bg-[#00E5FF]/80 transition-colors uppercase font-mono tracking-wide"
+    }
+  },
+  "visual_effects": {
+    "texture": "Subtle noise overlay globally. Add a pseudo-element with a repeating noise pattern overlay at low opacity (e.g., 0.03) with pointer-events-none.",
+    "scanlines": "Faint horizontal scanline pattern on hero section using repeating-linear-gradient(transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px).",
+    "animations": {
+      "scroll_reveal": "Use framer-motion. Initial { opacity: 0, y: 30 } whileInView { opacity: 1, y: 0 } viewport={{ once: true, margin: '-100px' }}.",
+      "typewriter": "Staggered text reveal mimicking command-line outputs for code blocks.",
+      "flatline_heartbeat": "SVG path animation transitioning from a flat amber line to an active cyan EKG/pulse heartbeat.",
+      "node_pulse": "CSS keyframe for a pulsating glowing ring (scale 1 to 1.5, opacity 1 to 0) around robot node markers."
+    },
+    "creative_libraries": [
+      "framer-motion",
+      "lucide-react",
+      "react-tsparticles (for the floating background network)",
+      "tsparticles-engine"
+    ]
+  },
+  "robot_illustrations": {
+    "strategy": "Strictly SVG or CSS-drawn wireframe silhouettes. Avoid realistic images.",
+    "types": ["AMR", "Robotic Arm", "Quadruped", "Humanoid", "Drone"],
+    "styling": "Stroke-only paths in #00E5FF with 1px width, glowing drop-shadows filter: drop-shadow(0 0 5px rgba(0,229,255,0.5))."
+  },
+  "images": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/927b68b8-9830-4903-97e6-cc4434822725/images/e2cfa3b2d48fee208c2ac2d8581c8d496eff0cc25a56c535ad68ae2383245ba5.png",
+      "description": "Abstract mission control texture background to be placed at 10-20% opacity under the hero section.",
+      "type": "background"
+    },
+    "sensor_abstract": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/927b68b8-9830-4903-97e6-cc4434822725/images/5835470197f2475d53651752898acd03de856e713b281f47047107dc91a467f3.png",
+      "description": "Macro observability sensor. Use as a background for the Social Proof / Terminal section.",
+      "type": "background"
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "Strict adherence to APCA contrast for text on #050A0F and #0D1117. Secondary text must remain legible.",
+    "testing": "All interactive elements, buttons, inputs, and major section wrappers MUST have a descriptive 'data-testid' attribute (e.g., 'hero-waitlist-input', 'submit-email-button')."
+  },
+  "instructions_to_main_agent": [
+    "Install tailwindcss, framer-motion, lucide-react, react-tsparticles.",
+    "Never use raw HTML input for the waitlist form. Maintain styling control.",
+    "Ensure dark mode is permanent. Do NOT implement a light/dark toggle.",
+    "The 'How It Works' section must use a horizontal line or nodes connecting step 1, 2, and 3.",
+    "For the Pain section, the cards MUST use the warning (amber) glow effect explicitly.",
+    "For the Solution/Features section, the cards MUST use the primary (cyan) glow effect explicitly.",
+    "Create SVGs for the 5 robot types directly using 'lucide-react' icons if exact silhouettes are complex, or draw explicit SVGs. If using Lucide: Bot (Humanoid), Box/Truck (AMR), Claw/Combine (Arm), Dog (Quadruped), Plane/Drone (Drone)."
+  ]
+}
