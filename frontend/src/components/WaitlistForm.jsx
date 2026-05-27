@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { trackEvent } from "./AnalyticsTracker";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -8,15 +9,21 @@ export default function WaitlistForm({ idPrefix = "hero" }) {
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
 
+  const handleFocus = () => {
+    trackEvent("form_focus", { form: idPrefix });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim()) return;
     setStatus("loading");
+    trackEvent("form_submit", { form: idPrefix });
     try {
-      const res = await axios.post(`${API}/waitlist`, { email });
+      const res = await axios.post(`${API}/waitlist`, { email, source: idPrefix });
       if (res.data.success) {
         setStatus("success");
         setMessage(res.data.message);
+        trackEvent("form_success", { form: idPrefix, email });
       } else {
         setStatus("error");
         setMessage(res.data.message);
@@ -45,6 +52,7 @@ export default function WaitlistForm({ idPrefix = "hero" }) {
         placeholder="engineer@company.com"
         required
         data-testid={`${idPrefix}-waitlist-input`}
+        onFocus={handleFocus}
         className="bg-[#050A0F] border border-[#00E5FF]/30 text-[#F0F4F8] focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] focus:outline-none sm:rounded-l-md sm:rounded-r-none rounded-md px-4 py-3 h-12 w-full font-mono text-sm placeholder:text-[#8B9EB0]/60"
       />
       <button
