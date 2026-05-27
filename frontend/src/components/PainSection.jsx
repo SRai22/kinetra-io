@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Grid3x3, BellOff, Layers } from "lucide-react";
-import { FleetConstellation } from "./RobotSVGs";
+import { FleetConstellation, HeartbeatLine } from "./RobotSVGs";
 
 const painCards = [
   {
@@ -55,11 +55,20 @@ export default function PainSection() {
         <motion.h2
           {...fadeUp}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-16"
+          className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-6"
         >
           Your robots are running.{" "}
           <span className="text-[#FFB300]">But are they okay?</span>
         </motion.h2>
+
+        {/* Heartbeat line - amber flatline with occasional cyan pulse */}
+        <motion.div
+          {...fadeUp}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-16 max-w-2xl h-10"
+        >
+          <HeartbeatLine />
+        </motion.div>
 
         {/* Pain cards */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -78,11 +87,6 @@ export default function PainSection() {
               <div className="w-12 h-12 rounded-lg bg-[#FFB300]/10 border border-[#FFB300]/20 flex items-center justify-center mb-5">
                 <card.icon className="w-5 h-5 text-[#FFB300]" />
               </div>
-
-              {/* Flatline indicator */}
-              <svg className="w-full h-6 mb-4" viewBox="0 0 200 24" fill="none">
-                <line x1="0" y1="12" x2="200" y2="12" stroke="#FFB300" strokeWidth="1" opacity="0.4" className="flatline-pulse" />
-              </svg>
 
               <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-[#FFB300] mb-3">
                 {card.title}

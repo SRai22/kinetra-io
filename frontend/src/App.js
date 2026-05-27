@@ -1,4 +1,5 @@
 import "@/App.css";
+import Navbar from "@/components/Navbar";
 import ParticleNetwork from "@/components/ParticleNetwork";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
@@ -11,12 +12,18 @@ function App() {
   return (
     <div className="relative min-h-screen bg-[#050A0F] text-[#F0F4F8] overflow-x-hidden">
       <div className="noise-overlay" />
+      <Navbar />
       <ParticleNetwork />
       <HeroSection />
+      <div className="section-divider" />
       <PainSection />
+      <div className="section-divider" />
       <FeaturesSection />
+      <div className="section-divider" />
       <HowItWorksSection />
+      <div className="section-divider" />
       <SocialProofSection />
+      <div className="section-divider" />
       <CTASection />
     </div>
   );

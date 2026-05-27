@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Terminal, Wifi, LayoutDashboard } from "lucide-react";
+import { RobotOnline } from "./RobotSVGs";
 
 const steps = [
   {
@@ -83,6 +84,36 @@ function TerminalAnimation() {
   );
 }
 
+function RobotBootSequence() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) {
+      setPhase(0);
+      return;
+    }
+    const stages = [0, 0.3, 0.6, 1.0];
+    let step = 0;
+    const interval = setInterval(() => {
+      step++;
+      if (step < stages.length) {
+        setPhase(stages[step]);
+      } else {
+        clearInterval(interval);
+      }
+    }, 800);
+    return () => clearInterval(interval);
+  }, [isInView]);
+
+  return (
+    <div ref={ref} className="flex justify-center">
+      <RobotOnline phase={phase} className="transition-all duration-700" />
+    </div>
+  );
+}
+
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -114,15 +145,25 @@ export default function HowItWorksSection() {
           <span className="text-[#00E5FF]">online.</span>
         </motion.h2>
 
-        {/* Terminal animation */}
-        <motion.div
-          {...fadeUp}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex justify-center mb-16"
-          data-testid="terminal-animation"
-        >
-          <TerminalAnimation />
-        </motion.div>
+        {/* Terminal + Robot side by side on desktop */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-16">
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            data-testid="terminal-animation"
+            className="w-full md:w-auto"
+          >
+            <TerminalAnimation />
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="hidden md:block"
+          >
+            <RobotBootSequence />
+          </motion.div>
+        </div>
 
         {/* Steps timeline */}
         <div className="relative">
