@@ -21,9 +21,10 @@ Build a single-page pre-launch waitlist landing page for Kinetra, a fleet monito
 - Fully responsive (mobile, tablet, desktop)
 
 ## What's Been Implemented (Dec 2025)
+### V1 - Core Landing Page
 - [x] Backend: POST /api/waitlist, GET /api/waitlist/count with email validation
 - [x] Hero: Word-by-word headline animation, typewriter subheadline, waitlist form
-- [x] Pain: 3 amber-glow cards with flatline indicators
+- [x] Pain: 3 amber-glow cards
 - [x] Features: 3 cyan-glow feature pillars with bullet points
 - [x] How It Works: Terminal animation cycling 3 install commands + 3-step timeline
 - [x] Social Proof: 3 terminal-style quote cards
@@ -32,12 +33,20 @@ Build a single-page pre-launch waitlist landing page for Kinetra, a fleet monito
 - [x] Noise overlay, scanlines, glass morphism cards
 - [x] SVG robot silhouettes (AMR, Arm, Quadruped, Humanoid, Drone)
 - [x] Fleet constellation component (connected/disconnected/online variants)
-- [x] Full responsive design
-- [x] All data-testid attributes
+- [x] Full responsive design + all data-testid attributes
+
+### V2 - Visual Enhancements
+- [x] Fixed navbar with KINETRA logo, nav links, scroll-triggered blur
+- [x] FleetConstellation upgraded with actual robot SVG silhouettes (not just dots)
+- [x] Heartbeat SVG animation (amber flatline → cyan pulse) in Pain section
+- [x] Robot silhouette backgrounds in Feature cards with animated data streams
+- [x] Robot boot sequence animation (OFFLINE → CONNECTING → ONLINE) in How It Works
+- [x] Section dividers between all sections
+- [x] Mobile-optimized nav (logo + CTA only)
 
 ## Backlog
 - P1: Email confirmation (SendGrid/Resend integration)
-- P1: Analytics tracking for conversion funnel
+- P1: Analytics/conversion tracking
 - P2: Admin dashboard to view/export waitlist emails
-- P2: Animated robot SVGs with per-section state transitions
-- P3: Referral system for waitlist position
+- P2: Referral system for waitlist position
+- P3: A/B testing for headline variants
